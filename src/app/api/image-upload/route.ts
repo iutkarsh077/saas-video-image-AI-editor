@@ -15,7 +15,7 @@ cloudinary.config({
 
 interface CloudinaryCloudResult {
     public_id: string,
-    [key: string]: any
+    [key: string]: any 
 }
 
 export async function POST(request: NextRequest){
