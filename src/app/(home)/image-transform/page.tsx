@@ -3,6 +3,7 @@
 import React, {useState, useEffect, useRef} from 'react'
 import { CldImage } from 'next-cloudinary';
 import { useToast } from "@/components/ui/use-toast"
+import { Progress } from "@nextui-org/react";
 
 
 const socialFormats = {
@@ -139,9 +140,13 @@ const handleDownload = async () => {
           <h3 className="text-2xl font-semibold mb-4 text-gray-600">Preview:</h3>
           <div className="flex justify-center bg-white p-6 rounded-lg shadow-inner">
             {isTransforming && (
-              <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10">
-                <span className="loader"></span> {/* You can customize a loading spinner */}
-              </div>
+               <Progress
+               size="sm"
+               isIndeterminate
+               aria-label="Loading..."
+               className="w-full"
+               color="secondary"
+             />
             )}
             <CldImage
               width={socialFormats[selectedFormat].width}
@@ -162,7 +167,7 @@ const handleDownload = async () => {
         <button
               onClick={handleDownload}
               disabled={isDownloadClicked}
-              className={`px-6 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-lg shadow focus:outline-none focus:ring-2 ${isDownloadClicked ? "bg-indigo-900" : "hover:bg-indigo-700 focus:ring-indigo-500"}`}
+              className={`px-6 py-3 text-lg font-semibold text-white bg-purple-600 rounded-lg shadow focus:outline-none focus:ring-2 ${isDownloadClicked ? "bg-purple-500" : "hover:bg-purple-700"}`}
             >
               {isDownloadClicked ? "Please Wait" : `Download for ${selectedFormat}`}
             </button>
