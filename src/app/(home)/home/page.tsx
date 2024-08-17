@@ -10,7 +10,7 @@ function Home() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const { toast } = useToast();
-    const fetchVideos = useCallback(async () => {
+    const fetchVideos = async () => {
         try {
             const response = await axios.get("/api/video");
             if(Array.isArray(response.data.videos)) {
@@ -31,7 +31,7 @@ function Home() {
         } finally {
             setLoading(false)
         }
-    }, [])
+    }
 
     useEffect(() => {
         fetchVideos()
