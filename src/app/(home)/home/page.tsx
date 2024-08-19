@@ -16,18 +16,18 @@ function Home() {
             if(Array.isArray(response.data.videos)) {
                 setVideos(response.data.videos)
             } else {
-              toast({
-                title: "Unexpected response format"
-              })
+              // toast({
+              //   title: "Unexpected response format"
+              // })
                 throw new Error("Unexpected response format");
             }
         } catch (error) {
             console.log(error);
             setError("Failed to fetch videos")
-            toast({
-              title: "Something went wrong",
-              description: "Please try again after sometime"
-            })
+            // toast({
+            //   title: "Something went wrong",
+            //   description: "Please try again after sometime"
+            // })
         } finally {
             setLoading(false)
         }
